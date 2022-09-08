@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+            <title>Formulaire Orienté Objet</title>
+        </head>
+        <body>
+            <h1>Employee Manager</h1>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+              
+            <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="loginForm">
+                                <label class="col-form-label">Username:</label>
+                                <input id="loginUsername" name="loginUsername" class="form-control" type="text">
+                                <label class="col-form-label">Password:</label>
+                                <input id="loginPassword" name="loginPassword" class="form-control" type="password">
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#inscriptionModal">I don't have an account</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="loginSubmit" type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="inscriptionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="inscriptionForm">
+                                <label for="firstname" class="col-form-label">First name:</label>
+                                <input id="firstname" name="firstname" class="form-control" type="text" required>
+                                <label for="lastname" class="col-form-label">Last name:</label>
+                                <input id="lastname" name="lastname" class="form-control" type="text" required>
+                                <label for="password" class="col-form-label">Password:</label>
+                                <input id="password" name="password" class="form-control" type="password" required>
+                                <label for="email" class="col-form-label">Email:</label>
+                                <input id="email" name="email" class="form-control" type="email" required>
+                                <label for="birthday" class="col-form-label">Birthday:</label>
+                                <input id="birthday" name="birthday" class="form-control" type="date" required>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">Return</button>
+                            <button id="inscriptionSubmit" type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>         
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"></script>
+            <script type="module" src="src/main.js"></script>
+        </body>
+    </html>

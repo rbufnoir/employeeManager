@@ -1,0 +1,52 @@
+{
+  "employees": [
+    {
+      "fName": "Rémi",
+      "lName": "BUFNOIR",
+      "birthday": "1993-01-12T00:00:00.000Z",
+      "age": 29,
+      "gender": "?",
+      "email": "remi.bufnoir@free.fr",
+      "pwd": -1076782302,
+      "contractStart": null,
+      "inscriptionComplete": false,
+      "id": 1
+    },
+    {
+      "fName": "Rémi",
+      "lName": "BUFNOIR",
+      "birthday": "1993-01-12T00:00:00.000Z",
+      "age": 29,
+      "gender": "?",
+      "email": "fanny.lacroix@example.com",
+      "pwd": "07e205944b7f1037ed8c1132a61703093bc2e7bdbaa7e5b4748fb13d9fd6fb52",
+      "contractStart": null,
+      "inscriptionComplete": false,
+      "id": 2
+    },
+    {
+      "fName": "Rémi",
+      "lName": "BUFNOIR",
+      "birthday": "1993-01-12T00:00:00.000Z",
+      "age": 29,
+      "gender": "?",
+      "email": "emeline.bertrand@example.com",
+      "pwd": "07e205944b7f1037ed8c1132a61703093bc2e7bdbaa7e5b4748fb13d9fd6fb52",
+      "contractStart": null,
+      "inscriptionComplete": false,
+      "id": 3
+    },
+    {
+      "fName": "Rémi",
+      "lName": "BUFNOIR",
+      "birthday": "1993-01-12T00:00:00.000Z",
+      "age": 29,
+      "gender": "?",
+      "email": "rose.deschamps@example.com",
+      "pwd": "07e205944b7f1037ed8c1132a61703093bc2e7bdbaa7e5b4748fb13d9fd6fb52",
+      "contractStart": null,
+      "inscriptionComplete": false,
+      "id": 4
+    }
+  ]
+}
