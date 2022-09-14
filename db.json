@@ -4,49 +4,90 @@
       "fName": "Rémi",
       "lName": "BUFNOIR",
       "birthday": "1993-01-12T00:00:00.000Z",
+      "username": "rbufnoir93",
       "age": 29,
-      "gender": "?",
+      "gender": "Unknown",
       "email": "remi.bufnoir@free.fr",
-      "pwd": -1076782302,
+      "pwd": "b6e7006d210a610118f5ef6972e82a5cb7e7cc2700c7a6ef6ad341a6079fe63b",
+      "adress": "32 rue Flegier",
+      "phoneNumber": "06-28-82-02-22",
+      "contract": "Unknown",
       "contractStart": null,
+      "baseSalary": "Unknown",
+      "avatarAdress": "https://avatars.dicebear.com/api/initials/RB.svg",
+      "inscriptionComplete": true,
+      "role": [
+        "user"
+      ],
+      "id": 1,
+      "status": "employees"
+    },
+    {
+      "fName": "Test",
+      "lName": "BUFNOIR",
+      "birthday": "1993-01-12T00:00:00.000Z",
+      "username": "tbufnoir93",
+      "age": 29,
+      "gender": "Unknown",
+      "email": "remi.bufnoir2@free.fr",
+      "pwd": "07e205944b7f1037ed8c1132a61703093bc2e7bdbaa7e5b4748fb13d9fd6fb52",
+      "adress": "Unknown",
+      "phoneNumber": "Unknown",
+      "contract": "Unknown",
+      "contractStart": null,
+      "baseSalary": "Unknown",
+      "avatarAdress": "https://avatars.dicebear.com/api/initials/TB.svg",
       "inscriptionComplete": false,
-      "id": 1
+      "role": [
+        "user"
+      ],
+      "id": 2,
+      "status": "employees"
     },
     {
       "fName": "Rémi",
       "lName": "BUFNOIR",
       "birthday": "1993-01-12T00:00:00.000Z",
+      "username": "rbufnoir93",
       "age": 29,
-      "gender": "?",
-      "email": "fanny.lacroix@example.com",
+      "gender": "Unknown",
+      "email": "remi.bufnoir@free.fr",
       "pwd": "07e205944b7f1037ed8c1132a61703093bc2e7bdbaa7e5b4748fb13d9fd6fb52",
+      "adress": "Unknown",
+      "phoneNumber": "Unknown",
+      "contract": "Unknown",
       "contractStart": null,
+      "baseSalary": "Unknown",
+      "avatarAdress": "https://avatars.dicebear.com/api/initials/RB.svg",
       "inscriptionComplete": false,
-      "id": 2
+      "role": [
+        "user"
+      ],
+      "id": 3,
+      "status": "employees"
     },
     {
-      "fName": "Rémi",
-      "lName": "BUFNOIR",
-      "birthday": "1993-01-12T00:00:00.000Z",
-      "age": 29,
-      "gender": "?",
-      "email": "emeline.bertrand@example.com",
-      "pwd": "07e205944b7f1037ed8c1132a61703093bc2e7bdbaa7e5b4748fb13d9fd6fb52",
+      "fName": "salah ",
+      "lName": "belas",
+      "birthday": "1956-10-08T00:00:00.000Z",
+      "username": "sbelas56",
+      "age": 65,
+      "gender": "Unknown",
+      "email": "salah@yahoo.fr",
+      "pwd": "e09effffb46c62feaddf37ba7e298494d0e99a1dbcce743c4ddb3ca9ab970c62",
+      "adress": "Unknown",
+      "phoneNumber": "Unknown",
+      "contract": "Unknown",
       "contractStart": null,
-      "inscriptionComplete": false,
-      "id": 3
-    },
-    {
-      "fName": "Rémi",
-      "lName": "BUFNOIR",
-      "birthday": "1993-01-12T00:00:00.000Z",
-      "age": 29,
-      "gender": "?",
-      "email": "rose.deschamps@example.com",
-      "pwd": "07e205944b7f1037ed8c1132a61703093bc2e7bdbaa7e5b4748fb13d9fd6fb52",
-      "contractStart": null,
-      "inscriptionComplete": false,
-      "id": 4
+      "baseSalary": "Unknown",
+      "avatarAdress": "https://avatars.dicebear.com/api/initials/sb.svg",
+      "role": [
+        "user"
+      ],
+      "id": 4,
+      "status": "employees",
+      "prix": "Infini"
     }
-  ]
+  ],
+  "oldEmployees": []
 }

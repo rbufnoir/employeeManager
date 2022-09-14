@@ -1,21 +1,26 @@
-import { encryptData } from './utilities.js'
 
 export class Employee {
-    constructor(fName, lName, birthday, gender, email, pwd, adress, phoneNumber, contract, contractStart, baseSalary, avatarAdress) {
-        this.fName = fName;
-        this.lName = lName;
-        this.birthday = new Date(birthday);
-        this.age = Math.floor((Date.now() - (new Date(birthday))) / (1000 * 60 * 60 * 24 * 365.25));
-        this.gender = gender;
-        this.email = email;
-        this.pwd = pwd;
-        this.adress = adress;
-        this.phoneNumber = phoneNumber;
-        this.contract = contract;
-        this.contractStart = new Date(contractStart);
-        this.baseSalary = baseSalary;
-        this.avatarAdress = (avatarAdress === "") ? `https://avatars.dicebear.com/api/initials/${fName[0]}${lName[0]}.svg`: avatarAdress;
-        this.inscriptionComplete = (arguments.length < 12) ? false : true ;
+    static dbUrl = 'http://localhost:3000/employees/';
+
+    constructor(data) {
+        this.fName = data.fName;
+        this.lName = data.lName;
+        this.birthday = new Date(data.birthday);
+        this.username = this.username(data.fName, data.lName, data.birthday);
+        this.age = Math.floor((Date.now() - (new Date(data.birthday))) / (1000 * 60 * 60 * 24 * 365.25));
+        this.gender = data.gender;
+        this.email = data.email;
+        this.pwd = data.pwd;
+        this.adress = data.adress;
+        this.phoneNumber = data.phoneNumber;
+        this.contract = data.contract;
+        this.contractStart = new Date(data.contractStart);
+        this.baseSalary = data.baseSalary;
+        this.avatarAdress = (data.avatarAdress === "") ? `https://avatars.dicebear.com/api/initials/${data.fName[0]}${data.lName[0]}.svg` : data.avatarAdress;
+        this.inscriptionComplete = (data.inscriptionComplete);
+        this.role = ['user'];
+        this.id = data.id;
+        this.status = "employees";
     }
 
     currentSalary() {
@@ -25,31 +30,96 @@ export class Employee {
         return Math.floor(this.baseSalary.slice(1) * Math.pow(1.10, diff));
     }
 
-    username() {
-        return `${this.fName[0].toLowerCase()}${this.lName.toLowerCase()}${this.birthday.getFullYear().toString().slice(2)}`.split(' ').join('');
+    username(fName, lName, birthday) {
+        return `${fName[0].toLowerCase()}${lName.toLowerCase()}${new Date(birthday).getFullYear().toString().slice(2)}`.split(' ').join('');
     }
 
-    getAllUser() {
-        const data = fetch('http://localhost:3000/employees').then(rep => rep.json());
-        return (data);
-    }
-
-    getUserById(id) {
-        const data = fetch('http://localhost:3000/employees/' + id).then(rep => rep.json());
-        return (data);
-    }
-
-    getUserByEmail(email) {
-        const data = fetch('http://localhost:3000/employees')
-        .then(rep => rep.json())
-        .then((tab) => {
-            const cell = tab.find(obj => {
-                if (obj.email === email)
-                    return obj.id
-            })
-            return fetch('http://localhost:3000/employees/' + cell.id)
+    static async getAllUser() {
+        let users = [];
+        await fetch(this.dbUrl)
             .then(rep => rep.json())
+            .then((data) => {
+                for (let i = 0; i < data.length; i++)
+                    users[i] = new Employee(data[i]);
+            })
+        return users;
+    }
+
+    static async getId() {
+        return await fetch(this.dbUrl)
+            .then(resp => resp.json())
+            .then(data => data.length)
+    }
+
+    static async getUserById(id) {
+        return await fetch(this.dbUrl + id)
+            .then(rep => rep.json())
+            .then(data => new Employee(data));
+    }
+
+    static async getUserId(field, value) {
+        return await fetch(this.dbUrl)
+            .then(rep => rep.json())
+            .then((data) => {
+                const user = data.find(obj => {
+                    let fieldExist = Object.getOwnPropertyDescriptor(obj, field)
+                    if (fieldExist && fieldExist.value === value)
+                        return obj;
+                    if (!fieldExist)
+                        obj = null;
+                })
+                return (user.id)
+            })
+    }
+
+    static async getUser(field, value) {
+        let user = [];
+        await fetch(this.dbUrl)
+            .then(resp => resp.json())
+            .then(data => data.find(obj => {
+                let fieldExist = Object.getOwnPropertyDescriptor(obj, field)
+                if (fieldExist && fieldExist.value === value)
+                    user.push(new Employee(obj));
+                else
+                    obj = null;
+            }))
+        return (user != null) ? user : null;
+    }
+
+    static dropDatabase() {
+        fetch(this.dbUrl)
+            .then(resp => resp.json())
+            .then((data) => {
+                for (let i = 0; i < data.length; i++)
+                    fetch(dbUrl + data[i].id, {
+                        method: "DELETE"
+                    })
+            });
+    }
+
+    addToDatabase() {
+        fetch(this.dbUrl, {
+            method: "POST",
+            body: JSON.stringify(this),
+            headers: {
+                'Content-type': 'application/json'
+            }
         });
-        return (data);
+    }
+
+    addField(object) {
+        fetch("http://localhost:3000/employees/" + this.id, {
+            method: "PATCH",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(object)
+        })
+    }
+
+    deleteUser() {
+        fetch(this.dbUrl + this.id, {
+            method: "DELETE"
+        })
     }
 }
